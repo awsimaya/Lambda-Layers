@@ -1,9 +1,9 @@
 # Using AWS Lambda Layers with .NET Core
 ## Introduction
 In this exercise we are going to see some techniques on how to create and use Lambda Layers with .NET Core. 
-## What is Lambda Layer
+## What is Lambda Layers?
 Lambda Layer is a feature in AWS Lambda that allows customers to create reusable Lambda components and use them in several Lambda functions without having to deploy the component each time in separate applications.
-## When to use Lambda Layers
+## When to use Lambda Layers?
 Some of the use cases for Lambda Layers could be (but not limited to)
 1.	Enterprise level reusable business logic components
 2.	Generic logging and exception handling components
@@ -37,6 +37,8 @@ Let’s assume you had several Lambda functions that were processing Orders for 
 With Lambda Layers, you can avoid the redundant copy situation just by deploying the messaging component as a Lambda Layer and simply using it in all the Lambda functions that need the functionality.
 
 ## Prerequisites
+## Clone the repo
+- Clone the repo from here -  https://github.com/awsimaya/Lambda-Layers
 ## Development Environment Setup
 - Install Visual Studio 2019
 - Install AWS Toolkit for Visual Studio 2019 from here https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2017
