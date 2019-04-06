@@ -98,7 +98,7 @@ Set a local NuGet Package store on Visual Studio
 ```
 dotnet nuget  push <LOCAL_NUGET_PACKAGE_PATH> -s <LOCAL_NUGETSERVER_PATH>
 ```
-![NuGet](/images/NuGet.png)
+![NuGet](/images/Nuget.png)
 ## Create a Lambda Layer
 - Open the QueueHelper Solution from  ..Layers/QueueHelper location
 - The project references QueueHelperLibrary NuGet package which may not resolve properly in your case. Go ahead and fix that reference and make sure it’s referencing the package that you created on your local machine.
