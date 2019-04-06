@@ -151,4 +151,9 @@ Steps
 - In the Example Requests drop down, select any one of the options and remove the content from the textbox below. 
 - Type in any string in quotes like “New Message” 
 - Click Invoke
-- You should see “OK” in the Response text box, which means the message has been successfully send to SQS.
+- You should see “OK” in the Response text box, which means the message has been successfully sent to SQS.
+
+## Other posts to explore Lambda Layers
+- https://aws.amazon.com/blogs/developer/aws-lambda-layers-with-net-core/
+
+
