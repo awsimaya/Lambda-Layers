@@ -111,6 +111,7 @@ packages.zip
 - Download packages.zip file to your local machine and unzip it. The file contents should appear similar to the screenshot below
 
 ![Files](/images/Files.png)
+
 As you can see, the QueueHelperLibrary package along with the other dependencies have been packaged into a layer.
 
 Now you might wonder, why did I have to create an entirely new Lambda solution just to throw away. It doesn’t actually have to be that way. You just need to create an .xml file with the list of NuGet packages that need to be created into a Layer. The format of the package should be as below.
