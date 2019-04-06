@@ -56,7 +56,7 @@ With Lambda Layers, you can avoid the redundant copy situation just by deploying
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": "ssm:GetParameter",
-            "Resource": <ARN of the Parameter Store Key>
+            "Resource": "<ARN of the Parameter Store Key>"
         }
     ]
 }
