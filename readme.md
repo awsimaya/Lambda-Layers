@@ -1,6 +1,6 @@
 # Using AWS Lambda Layers with .NET Core
 ## Introduction
-In this post we are going to see some techniques on how to create and use Lambda Layers with .NET Core. 
+In this exercise we are going to see some techniques on how to create and use Lambda Layers with .NET Core. 
 ## What is Lambda Layer
 Lambda Layer is a feature in AWS Lambda that allows customers to create reusable Lambda components and use them in several Lambda functions without having to deploy the component each time in separate applications.
 ## When to use Lambda Layers
@@ -48,7 +48,7 @@ With Lambda Layers, you can avoid the redundant copy situation just by deploying
 - Attach the AmazonSQSFullAccess policy to it
 - Create a new Inline policy containing the following json
 
-```javascript
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -114,7 +114,7 @@ packages.zip
 
 As you can see, the QueueHelperLibrary package along with the other dependencies have been packaged into a layer.
 
-Now you might wonder, why did I have to create an entirely new Lambda solution just to throw away. It doesn’t actually have to be that way. You just need to create an .xml file with the list of NuGet packages that need to be created into a Layer. The format of the package should be as below.
+Now you might wonder, why did I have to create an entirely new Lambda solution just to throw away. It doesn’t actually have to be that way. You just need to create a .xml file with the list of NuGet packages that need to be created into a Layer. The format of the package should be as below.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
