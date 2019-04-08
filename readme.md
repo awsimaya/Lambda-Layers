@@ -45,10 +45,24 @@ With Lambda Layers, you can avoid the redundant copy situation just by deploying
 ## Create an S3 bucket for your Lambda functions
 - Log in to AWS Console and create a new S3 bucket 
 - Name it as LambdaApps
+## Create an Amazon SQS Queue
+- Login to AWS Console and navigate to the Amazon SQS home page and click on Create New Queue
+- Select Standard Queue
+- Name the Queue OrdersToProcess
+- Click Quick-Create Queue
+## Create a Parameter Store Key
+We will use this parameter store key to store the Queue URL which will be fetched by the Lambda to send Order messages to SQS
+- Login to AWS Console and navigate to AWS Systems Manager service home page
+- Click on Explore Parameter store
+- Click Create Parameter
+- Name the string as OrdersQueueName
+- Select the Type as String
+- Copy paste the URL of the OrdersToProcess queue
+- Click Create parameter
 ## Create an IAM Role for the Lambda function to assume
 - Create a new IAM Role and name it OrdersProcessorRole
 - Attach the AmazonSQSFullAccess policy to it
-- Create a new Inline policy containing the following json
+- Create a new Inline policy containing the following json attached to the IAM Role
 
 ```json
 {
@@ -64,20 +78,6 @@ With Lambda Layers, you can avoid the redundant copy situation just by deploying
 }
 
 ```
-## Create an Amazon SQS Queue
-- Login to AWS Console and navigate to the Amazon SQS home page and click on Create New Queue
-- Select Standard Queue
-- Name the Queue OrdersToProcess
-- Click Quick-Create Queue
-## Create a Parameter Store Key
-We will use this parameter store key to store the Queue URL which will be fetched by the Lambda to send Order messages to SQS
-- Login to AWS Console and navigate to AWS Systems Manager service home page
-- Click on Explore Parameter store
-- Click Create Parameter
-- Name the string as OrdersQueueName
-- Select the Type as String
-- Copy paste the URL of the OrdersToProcess queue
-- Click Create parameter
 ## Create the .NET Library 
 - Clone this project from here (https://github.com/awsimaya/QueueHelperRepository) on your local machine which has the class library project which uses Amazon SQS and AWS Systems Manager packages from the AWS SDK for .NET
 - Open the solution in Visual Studio and compile it to ensure there are no errors
@@ -106,10 +106,12 @@ dotnet nuget  push <LOCAL_NUGET_PACKAGE_PATH> -s <LOCAL_NUGETSERVER_PATH>
 - The project references QueueHelperLibrary NuGet package which may not resolve properly in your case. Go ahead and fix that reference and make sure it’s referencing the package that you created on your local machine.
 - Build and make sure there are no errors
 - Open PowerShell and navigate to the project file location and execute the following command after replacing the placeholder text with appropriate values that are relevant to you.
+```
 dotnet lambda publish-layer --region <AWS_REGION> --layer-name QueueHelperLayer --layer-type runtime-package-store -sb <S3_BUCKETNAME> -f netcoreapp2.1
+```
 - To validate that the new layer has been created, you can go to AWS Lambda service home page on the AWS console and check if it exists. Also, navigate to the S3 bucket location where you will find a new folder with two new files inside namely,
-artifact.xml
-packages.zip
+    - artifact.xml
+    - packages.zip
 - Download packages.zip file to your local machine and unzip it. The file contents should appear similar to the screenshot below
 
 ![Files](/images/Files.png)
