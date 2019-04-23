@@ -7,6 +7,6 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.4.0" />
-    <PackageReference Include="QueueHelperLibrary" Version="1.3.0" />
+    <PackageReference Include="QueueHelperLibrary" Version="1.4.0" />
   </ItemGroup>
 </Project>

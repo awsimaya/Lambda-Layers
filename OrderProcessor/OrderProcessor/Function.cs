@@ -22,7 +22,7 @@ namespace OrderProcessor
         /// <returns></returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
-            var helper = new Helper();
+            var helper = new Helper(Amazon.RegionEndpoint.USEast1);
             var response = helper.SendMessage(input).Result;
             return response.HttpStatusCode.ToString();
         }
