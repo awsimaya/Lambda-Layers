@@ -1,0 +1,10 @@
+<StoreArtifacts>
+  <Package Id="Amazon.Lambda.Core" Version="1.1.0" />
+  <Package Id="Amazon.Lambda.Core" Version="1.0.0" />
+  <Package Id="Amazon.Lambda.Serialization.Json" Version="1.4.0" />
+  <Package Id="Newtonsoft.Json" Version="9.0.1" />
+  <Package Id="AWSSDK.Core" Version="3.3.100.4" />
+  <Package Id="AWSSDK.SimpleSystemsManagement" Version="3.3.100.5" />
+  <Package Id="AWSSDK.SQS" Version="3.3.100.4" />
+  <Package Id="QueueHelperLibrary" Version="1.4.0" />
+</StoreArtifacts>
