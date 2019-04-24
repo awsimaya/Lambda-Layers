@@ -13,7 +13,7 @@ namespace OrderProcessor
 {
     public class Function
     {
-        
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>
@@ -22,9 +22,8 @@ namespace OrderProcessor
         /// <returns></returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
-            var helper = new Helper(Amazon.RegionEndpoint.USEast1);
-            var response = helper.SendMessage(input).Result;
-            return response.HttpStatusCode.ToString();
+            var response = new Helper(Amazon.RegionEndpoint.USEast1).SendMessage(input);
+            return response.Result.HttpStatusCode.ToString();
         }
     }
 }
