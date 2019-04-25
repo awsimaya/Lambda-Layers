@@ -10,7 +10,7 @@ Resources:
       Handler: OrderProcessor::OrderProcessor.Function::FunctionHandler
       Runtime: dotnetcore2.1
       Layers:
-        - arn:aws:lambda:us-east-1:831210339789:layer:QueueHelperLayer:5
+        - arn:aws:lambda:us-east-1:831210339789:layer:QueueHelperLayer:9
       MemorySize: 128
       Timeout: 30
       Role: arn:aws:iam::831210339789:role/OrderProcessorRole
