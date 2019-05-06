@@ -44,7 +44,7 @@ With Lambda Layers, you can avoid the redundant copy situation just by deploying
 - Install AWS Toolkit for Visual Studio 2019 from here https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2017
 ## Create an S3 bucket for your Lambda functions
 - Log in to AWS Console and create a new S3 bucket 
-- Name it as LambdaApps
+- Name it as *lambdaapps*
 ## Create an Amazon SQS Queue
 - Login to AWS Console and navigate to the Amazon SQS home page and click on Create New Queue
 - Select Standard Queue
@@ -79,7 +79,7 @@ We will use this parameter store key to store the Queue URL which will be fetche
 
 ```
 ## Create the .NET Library 
-- Clone this project from here (https://github.com/awsimaya/QueueHelperRepository) on your local machine which has the class library project which uses Amazon SQS and AWS Systems Manager packages from the AWS SDK for .NET
+- Go to *QueueHelperLibrary* folder on the Git repo you cloned earlier. This is a class library project which uses Amazon SQS and AWS Systems Manager packages from AWS SDK for .NET
 - Open the solution in Visual Studio and compile it to ensure there are no errors
 ## Publish a NuGet Package 
 - Go to Project Properties on Visual Studio. Select the Pack
@@ -144,7 +144,7 @@ dotnet lambda publish-layer --region <AWS_REGION> --layer-name QueueHelperLayer 
     - Change the function-role parameter to the ARN of the IAM role you created earlier
     - Change the s3-bucket parameter to the name of the S3 bucket you created earlier
 - Right click on the Lambda project and publish the Lambda function. 
-Navigate to the S3 bucket where the Lambda function is stored. When you download the package.zip file, you will see that there is just one library in the package. Other libraries will be obtained from the Lambda Layer that is configured to the Lambda function. Given that there is a cap of 75GB of storage limit per account for Lambda, using Layers will allow you to have increased number of functions deployed due to lower storage requirements.
+Navigate to the S3 bucket where the Lambda function is stored. When you download the *package.zip* file, you will see that there is just one library in the package. Other libraries will be obtained from the Lambda Layer that is configured to the Lambda function. Given that there is a cap of 75GB of storage limit per account for Lambda, using Layers will allow you to have increased number of functions deployed due to lower storage requirements.
 ## Test it out
 Once the Lambda function is deployed successfully, you should be able to see a screen with the Invoke button to test the function using Visual Studio
 Steps
