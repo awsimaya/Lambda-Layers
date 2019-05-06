@@ -37,11 +37,27 @@ Let’s assume you had several Lambda functions that were processing Orders for 
 With Lambda Layers, you can avoid the redundant copy situation just by deploying the messaging component as a Lambda Layer and simply using it in all the Lambda functions that need the functionality.
 
 ## Prerequisites
-## Clone the repo
-- Clone the repo from here -  https://github.com/awsimaya/Lambda-Layers
-## Development Environment Setup
+## Visual Studio Environment Setup
 - Install Visual Studio 2019
 - Install AWS Toolkit for Visual Studio 2019 from here https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2017
+
+## Install Lambda extensions for dotnet CLI
+This installation will allow you to execute _dotnet lambda_ commands from the CLI
+- Open command prompt/PowerShell and run the following command
+```
+dotnet tool install -g Amazon.Lambda.Tools
+```
+- If you already had the tool installed, run the following command to upgrade to the latest version
+```
+dotnet tool update -g Amazon.Lambda.Tools
+```
+- Once installed/updated, run the following command and ensure it appears in the result
+```
+ dotnet tool list -g
+```
+## Clone the repo
+- Clone the repo from here -  https://github.com/awsimaya/Lambda-Layers
+
 ## Create an S3 bucket for your Lambda functions
 - Log in to AWS Console and create a new S3 bucket 
 - Name it as *lambdaapps*
