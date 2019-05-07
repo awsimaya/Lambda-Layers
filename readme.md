@@ -94,8 +94,8 @@ We will use this parameter store key to store the Queue URL which will be fetche
 }
 
 ```
-> ARN of the Parameter Store Key follows this format - 
-**arn:aws:ssm:<AWS_REGION>:<ACCOUNT_ID>:parameter/<KEY_NAME>**
+> 👉 **ARN of the Parameter Store Key follows this format** - 
+_arn:aws:ssm:<AWS_REGION>:<ACCOUNT_ID>:parameter/<KEY_NAME>_
 
 ## Create the .NET Library 
 - Go to *QueueHelperLibrary* folder on the Git repo you cloned earlier. This is a class library project which uses Amazon SQS and AWS Systems Manager packages from AWS SDK for .NET
