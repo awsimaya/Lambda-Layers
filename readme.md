@@ -76,7 +76,7 @@ We will use this parameter store key to store the Queue URL which will be fetche
 - Copy paste the URL of the OrdersToProcess queue
 - Click Create parameter
 ## Create an IAM Role for the Lambda function to assume
-- Create a new IAM Role and name it OrdersProcessorRole
+- Create a new IAM Role and name it OrderProcessorRole
 - Attach the AmazonSQSFullAccess policy to it
 - Create a new Inline policy containing the following json attached to the IAM Role
 
@@ -94,6 +94,9 @@ We will use this parameter store key to store the Queue URL which will be fetche
 }
 
 ```
+> ARN of the Parameter Store Key follows this format - 
+**arn:aws:ssm:<AWS_REGION>:<ACCOUNT_ID>:parameter/<KEY_NAME>**
+
 ## Create the .NET Library 
 - Go to *QueueHelperLibrary* folder on the Git repo you cloned earlier. This is a class library project which uses Amazon SQS and AWS Systems Manager packages from AWS SDK for .NET
 - Open the solution in Visual Studio and compile it to ensure there are no errors
