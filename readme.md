@@ -140,16 +140,20 @@ As you can see, the QueueHelperLibrary package along with the other dependencies
 Now you might wonder, why did I have to create an entirely new Lambda solution just to throw it all away. It doesn’t actually have to be that way. You just need to create a .xml file with the list of NuGet packages that need to be created into a Layer. The format of the XML file should be as below.
 
 ```xml
-<StoreArtifacts>
-  <Package Id="<NUGET_PACKAGE>" Version="<VERSION>" />
-</StoreArtifacts>
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="<NUGET_PACKAGE>" Version="<VERSION>" />
+  </ItemGroup>
+</Project>
 ```
 In our case, you could have a file that looks like the one below and push create the Lambda Layer by adding the additional _–package-manifest_ parameter
 
 ```xml
-<StoreArtifacts>
-  <Package Id="QueueHelperLibrary" Version="1.2.0" />
-</StoreArtifacts>
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="QueueHelperLibrary" Version="1.2.0" />
+  </ItemGroup>
+</Project>
 ```
 ```
 dotnet lambda publish-layer --region <AWS_REGION> --layer-name QueueHelperLayer --layer-type runtime-package-store -sb <S3_BUCKETNAME> -f netcoreapp2.1 --package-manifest <XML_FILENAME>
