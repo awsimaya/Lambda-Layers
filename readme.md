@@ -105,17 +105,17 @@ _arn:aws:ssm:<AWS_REGION>:<ACCOUNT_ID>:parameter/<KEY_NAME>_
 ![Pack](images/Pack.png)
 - You should see a .nupkg file under ..\bin\Release path
 - Copy this file to a folder location that you can access easily
-Set a local NuGet Package store on Visual Studio
-- On Visual Studio go to Tools -> Options -> NuGet Package Manager -> Package Sources
-- Point the new package source location to the new folder location where you placed the .nupkg file in the earlier step
-- Give it a custom name like Local NuGet Store 
+- Set a local NuGet Package store on Visual Studio
+  - On Visual Studio go to Tools -> Options -> NuGet Package Manager -> Package Sources
+  - Point the new package source location to the new folder location where you placed the .nupkg file in the earlier step
+  - Give it a custom name like Local NuGet Store 
 - Optionally, you can also setup your own NuGet Server on your own local machine by simply creating a new Empty ASP.NET Framework application and adding the NuGet.Server package to it from the NuGet store. This will add all the components required for you to host a local NuGet store locally. 
-- On the project’s web.config file, change the value to “false” for “requireApiKey” setting
+  - On the project’s web.config file, change the value to “false” for “requireApiKey” setting
 
 ```xml
 <add key="requireApiKey" value="false"/>
 ```
-- Press F5 to run the local NuGet server. While the server is running, you can simply push the package to the NuGet store using the following command
+  - Press F5 to run the local NuGet server. While the server is running, you can simply push the package to the NuGet store using the following command
 ```
 dotnet nuget  push <LOCAL_NUGET_PACKAGE_PATH> -s <LOCAL_NUGETSERVER_PATH>
 ```
